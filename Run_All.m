@@ -12,20 +12,23 @@ if isempty(projectFolder)
 end
 
 % List all source sections in their required execution order.
+% List source files in their respective folders, in execution order.
 sectionFiles = {
-    '00_before_section_1.m'
-    '01_pre_processing.m'
-    '02_pre_filter.m'
-    '03_stage_A_wiener.m'
-    '04_stage_B_neural.m'
-    '05_stage_C_polish.m'
-    '06_stage_D_voice_gate.m'
-    '07_clarity_EQ_leveling.m'
-    '08_transcription_topic_extraction.m'
-    '09_smart_revision.m'
-    '10_evaluation_report.m'
-    '11_text_to_audio.m'
-    'Local_functions.m'
+    fullfile('before_section_1', '00_before_section_1.m')
+
+    fullfile('sections', '01_pre_processing.m')
+    fullfile('sections', '02_pre_filter.m')
+    fullfile('sections', '03_stage_A_wiener.m')
+    fullfile('sections', '04_stage_B_neural.m')
+    fullfile('sections', '05_stage_C_polish.m')
+    fullfile('sections', '06_stage_D_voice_gate.m')
+    fullfile('sections', '07_clarity_EQ_leveling.m')
+    fullfile('sections', '08_transcription_topic_extraction.m')
+    fullfile('sections', '09_smart_revision.m')
+    fullfile('sections', '10_evaluation_report.m')
+    fullfile('sections', '11_text_to_audio.m')
+
+    fullfile('functions', 'Local_functions.m')
 };
 
 % Verify that every section exists.
@@ -72,4 +75,4 @@ fprintf('Combined MATLAB script created successfully.\n');
 fprintf('Running: %s\n\n', combinedPath);
 
 % Execute the complete program.
-run(combinedPath);  
+run(combinedPath);
